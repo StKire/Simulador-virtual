@@ -113,6 +113,10 @@ button {
     background: var(--surface-strong);
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
+    max-height: min(90vh, 920px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
 }
 
 .onboarding-steps {
@@ -915,8 +919,10 @@ button {
 
     .onboarding-card {
         width: 100%;
-        max-height: calc(100vh - 24px);
-        overflow: auto;
+        max-height: calc(100dvh - 24px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
         padding: 20px;
         border-radius: 22px;
     }
