@@ -797,11 +797,71 @@ button {
 @media (max-width: 760px) {
     .app-shell {
         width: min(100% - 18px, 1450px);
-        padding-top: 12px;
+        padding: 12px 0 28px;
     }
 
     .layout {
         gap: 14px;
+    }
+
+    .hero {
+        padding: 18px;
+        gap: 16px;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.8rem, 8vw, 2.6rem);
+    }
+
+    .hero-copy {
+        margin-top: 10px;
+        line-height: 1.55;
+    }
+
+    .hero-actions {
+        width: 100%;
+    }
+
+    .hero-actions button,
+    .turn-controls .primary-button,
+    .action-card button {
+        width: 100%;
+        min-height: 46px;
+    }
+
+    .dashboard-card {
+        border-radius: 20px;
+    }
+
+    .status-banner {
+        padding: 18px;
+    }
+
+    .status-metrics {
+        gap: 10px;
+    }
+
+    .status-pill {
+        min-width: 0;
+        padding: 14px 14px;
+    }
+
+    .tutorial-panel,
+    .controls-panel,
+    .narrative-panel,
+    .chart-panel,
+    .achievements-panel,
+    .final-panel {
+        padding: 18px;
+    }
+
+    .panel-header {
+        margin-bottom: 14px;
+    }
+
+    .panel-header h2,
+    .status-banner h2 {
+        font-size: 1.2rem;
     }
 
     .dashboard-grid,
@@ -832,16 +892,63 @@ button {
         flex-direction: column;
     }
 
-    .turn-controls {
+    .turn-controls,
+    .onboarding-actions {
         justify-content: stretch;
     }
 
     .turn-controls .primary-button,
-    .hero-actions button {
+    .hero-actions button,
+    .onboarding-actions button {
         width: 100%;
     }
 
     .onboarding-steps {
         grid-template-columns: 1fr;
+    }
+
+    .onboarding-overlay {
+        padding: 12px;
+        align-items: start;
+        overflow-y: auto;
+    }
+
+    .onboarding-card {
+        width: 100%;
+        max-height: calc(100vh - 24px);
+        overflow: auto;
+        padding: 20px;
+        border-radius: 22px;
+    }
+
+    .tutorial-content {
+        gap: 12px;
+    }
+
+    .tutorial-item,
+    .report-card,
+    .event-card,
+    .badge,
+    .metric-card,
+    .action-card {
+        border-radius: 18px;
+    }
+
+    .chart-card {
+        min-height: 220px;
+        padding: 12px;
+    }
+
+    .chart-card canvas {
+        height: 190px !important;
+    }
+
+    .metric-head,
+    .action-top {
+        gap: 8px;
+    }
+
+    .metric-value {
+        font-size: 1.4rem;
     }
 }
