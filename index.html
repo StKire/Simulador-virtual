@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Liderazgo Escolar</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<div id="onboardingOverlay" class="onboarding-overlay" role="dialog" aria-modal="true" aria-labelledby="onboardingTitle">
+    <div class="onboarding-card">
+        <p class="eyebrow">Guía de inicio</p>
+        <h2 id="onboardingTitle">Aprende a liderar la escuela</h2>
+        <p class="hero-copy">Asume el rol de director(a), gestiona recursos limitados, responde a eventos reales y mejora la escuela durante cinco ciclos escolares.</p>
+        <div class="onboarding-steps">
+            <article>
+                <span>1</span>
+                <h3>Revisa el tablero</h3>
+                <p>Observa los indicadores para entender dónde está la escuela y qué necesita.</p>
+            </article>
+            <article>
+                <span>2</span>
+                <h3>Elige tus decisiones</h3>
+                <p>Aplica hasta dos acciones por ciclo. Cada una tiene beneficios, costos y riesgos.</p>
+            </article>
+            <article>
+                <span>3</span>
+                <h3>Cierra cada año</h3>
+                <p>Al terminar cada ciclo verás un reporte, eventos aleatorios y el avance de las gráficas.</p>
+            </article>
+        </div>
+        <div class="onboarding-actions">
+            <button id="startGameButton" class="primary-button" type="button">Comenzar simulación</button>
+        </div>
+    </div>
+</div>
+
+<div class="app-shell">
+    <header class="hero">
+        <div>
+            <p class="eyebrow">Simulador educativo de gestión</p>
+            <h1>Simulador de Liderazgo Escolar</h1>
+            <p class="hero-copy">Dirige una escuela durante cinco ciclos escolares, toma decisiones con recursos limitados y construye liderazgo pedagógico, eficacia colectiva y mejora continua.</p>
+        </div>
+        <div class="hero-actions">
+            <button id="guideToggle" class="ghost-button" type="button">Guía rápida</button>
+            <button id="themeToggle" class="ghost-button" type="button">Modo oscuro</button>
+            <button id="restartButton" class="primary-button" type="button">Reiniciar simulador</button>
+        </div>
+    </header>
+
+    <main class="layout">
+        <section class="dashboard-card status-banner">
+            <div>
+                <span class="label">Ciclo actual</span>
+                <h2 id="cycleLabel">Año 1</h2>
+                <p id="cycleDescription">Primer ciclo escolar: diagnóstica prioridades y construye bases para el cambio.</p>
+            </div>
+            <div class="status-metrics">
+                <div class="status-pill"><span>Clasificación</span><strong id="leadershipType">Director Administrativo</strong></div>
+                <div class="status-pill"><span>Puntuación</span><strong id="scoreValue">0</strong></div>
+                <div class="status-pill"><span>Presupuesto</span><strong id="budgetValue">0</strong></div>
+            </div>
+        </section>
+
+        <section class="dashboard-card tutorial-panel">
+            <div class="panel-header">
+                <div>
+                    <span class="label">Guía activa</span>
+                    <h2>Objetivos del ciclo</h2>
+                </div>
+                <p id="tutorialHint">Empieza con acciones que eleven aprendizaje, clima y colaboración.</p>
+            </div>
+            <div id="tutorialContent" class="tutorial-content"></div>
+        </section>
+
+        <section class="dashboard-grid" id="indicatorGrid" aria-label="Indicadores de la escuela"></section>
+
+        <section class="dashboard-card controls-panel">
+            <div class="panel-header">
+                <div>
+                    <span class="label">Decisiones estratégicas</span>
+                    <h2>Acciones del director</h2>
+                </div>
+                <p id="turnHint">Elige hasta dos acciones por ciclo. Las consecuencias dependen del estado actual de la escuela.</p>
+            </div>
+            <div class="actions-grid" id="actionsGrid"></div>
+            <div class="turn-controls">
+                <button id="advanceButton" class="primary-button" type="button">Cerrar ciclo escolar</button>
+            </div>
+        </section>
+
+        <section class="dashboard-card narrative-panel">
+            <div class="panel-header">
+                <div>
+                    <span class="label">Eventos y reporte</span>
+                    <h2>Bitácora de gestión</h2>
+                </div>
+            </div>
+            <div id="eventLog" class="event-log" aria-live="polite"></div>
+            <div id="annualReport" class="annual-report"></div>
+        </section>
+
+        <section class="dashboard-card chart-panel">
+            <div class="panel-header">
+                <div>
+                    <span class="label">Visualización de datos</span>
+                    <h2>Evolución del liderazgo escolar</h2>
+                </div>
+            </div>
+            <div class="chart-grid">
+                <article class="chart-card"><canvas id="learningChart"></canvas></article>
+                <article class="chart-card"><canvas id="stressChart"></canvas></article>
+                <article class="chart-card"><canvas id="motivationChart"></canvas></article>
+                <article class="chart-card"><canvas id="collectiveChart"></canvas></article>
+            </div>
+        </section>
+
+        <section class="dashboard-card achievements-panel">
+            <div class="panel-header">
+                <div>
+                    <span class="label">Logros</span>
+                    <h2>Insignias desbloqueadas</h2>
+                </div>
+            </div>
+            <div id="achievementsGrid" class="badges-grid"></div>
+        </section>
+
+        <section class="dashboard-card final-panel">
+            <div class="panel-header">
+                <div>
+                    <span class="label">Resultado final</span>
+                    <h2>Informe de cierre</h2>
+                </div>
+            </div>
+            <div id="finalReport" class="final-report empty-state">Completa los cinco ciclos escolares para generar el informe final.</div>
+        </section>
+    </main>
+</div>
+
+</body>
+</html>
